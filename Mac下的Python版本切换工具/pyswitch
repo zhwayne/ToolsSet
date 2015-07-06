@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ ! -d "/System/Library/Frameworks/Python.framework/Versions/$1" ]; then
+    echo "No such directionary $1"
+    exit
+fi
+
+sudo chown -R root:wheel /System/Library/Frameworks/Python.framework/Versions/$1
+sudo rm /System/Library/Frameworks/Python.farmework/Version/Current
+sudo ln -s /System/Library/Frameworks/Python.framework/Versions/$1 /System/Library/Frameworks/Python.framework/Versions/Current
+
+sudo rm /usr/bin/pydoc
+sudo rm /usr/bin/python
+sudo rm /usr/bin/pythonw
+sudo rm /usr/bin/python-config
+
+sudo ln -s /System/Library/Frameworks/Python.framework/Versions/$1/bin/pydoc$1 /usr/bin/pydoc
+sudo ln -s /System/Library/Frameworks/Python.framework/Versions/$1/bin/python$1 /usr/bin/python
+sudo ln -s /System/Library/Frameworks/Python.framework/Versions/$1/bin/pythonw$1 /usr/bin/pythonw
+sudo ln -s /System/Library/Frameworks/Python.framework/Versions/$1/bin/python$1m-config /usr/bin/python-config
