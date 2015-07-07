@@ -6,7 +6,7 @@ if [ ! -d "/System/Library/Frameworks/Python.framework/Versions/$1" ]; then
 fi
 
 sudo chown -R root:wheel /System/Library/Frameworks/Python.framework/Versions/$1
-sudo rm /System/Library/Frameworks/Python.farmework/Version/Current
+sudo rm -rf /System/Library/Frameworks/Python.framework/Versions/Current
 sudo ln -s /System/Library/Frameworks/Python.framework/Versions/$1 /System/Library/Frameworks/Python.framework/Versions/Current
 
 sudo rm /usr/bin/pydoc
